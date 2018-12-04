@@ -137,3 +137,19 @@ df_12.groupBy('Place_of_death_and_decedents_status').count().orderBy('count', as
 
 # COMMAND ----------
 
+display(df_12.select("sex","current_data_year").groupBy("current_data_year").agg(count("sex")))
+
+# COMMAND ----------
+
+from pyspark.sql import Row
+
+df_12.registerTempTable("largeTable")
+display(sqlContext.sql("select * from largeTable"))
+%sql select current_data_year, sex, count("sex") from largeTable group by current_data_year, sex order by current_data_year, sex
+
+# COMMAND ----------
+
+
+
+# COMMAND ----------
+
