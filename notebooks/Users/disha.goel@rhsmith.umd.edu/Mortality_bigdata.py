@@ -79,7 +79,7 @@ df_10.schema.names
 
 # COMMAND ----------
 
-df_11 = df_10.drop('detail_age_type','detail_age', 'age_substitution_flag','age_recode_27', 'age_recode_12', 'infant_age_recode_22', 'icd_code_10th_revision','record_condition_20' , 'entity_condition_20', 'entity_condition_19', 'entity_condition_18', 'entity_condition_17', 'record_condition_19', 'record_condition_18', 'record_condition_16', 'record_condition_17','record_condition_15','record_condition_14','record_condition_13','record_condition_12','record_condition_11','record_condition_10','record_condition_9','record_condition_8','record_condition_7' )
+df_11 = df_10.drop('detail_age_type','detail_age', 'age_substitution_flag','age_recode_27', 'age_recode_12', 'infant_age_recode_22', 'icd_code_10th_revision')
 
 # COMMAND ----------
 
@@ -91,4 +91,15 @@ from pyspark.sql.functions import col, countDistinct
 
 # COMMAND ----------
 
-df_11.groupBy('record_condition_7').count().orderBy('count', ascending=False).show()
+df_11.groupBy('entity_condition_15').count().orderBy('count', ascending=False).show()
+
+# COMMAND ----------
+
+df_12 = df_11.drop('record_condition_20' , 'entity_condition_20', 'entity_condition_19', 'entity_condition_18', 'entity_condition_17', 'record_condition_19', 'record_condition_18', 'record_condition_16', 'record_condition_17','record_condition_15','record_condition_14','record_condition_13','record_condition_12','record_condition_11','record_condition_10','record_condition_9','record_condition_8','record_condition_7' , 'record_condition_6', 'entity_condition_16', 'entity_condition_15','entity_condition_14', 'entity_condition_13', 'entity_condition_12', 'entity_condition_11', 'entity_condition_10', 'entity_condition_9','entity_condition_8', 'entity_condition_7', 'entity_condition_6')
+
+# COMMAND ----------
+
+df_12.groupBy('current_data_year').count().orderBy('count', ascending=False).show()
+
+# COMMAND ----------
+
