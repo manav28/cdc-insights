@@ -165,3 +165,11 @@ display(sqlContext.sql("select * from largeTable"))
 
 # COMMAND ----------
 
+# MAGIC %sql select age_recode_52, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by age_recode_52, 358_cause_recode order by age_recode_52, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select age_recode_52, 358_cause_recode , count("age_recode_52") from largeTable group by age_recode_52, 358_cause_recode order by count("age_recode_52") desc, age_recode_52, 358_cause_recode
+
+# COMMAND ----------
+
