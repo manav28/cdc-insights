@@ -165,7 +165,24 @@ display(sqlContext.sql("select * from largeTable"))
 
 # COMMAND ----------
 
-# MAGIC %sql select age_recode_52, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by age_recode_52, 358_cause_recode order by age_recode_52, 358_cause_recode
+# MAGIC %sql select age_recode_52, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by age_recode_52, 358_cause_recode order by count("358_cause_recode") desc, age_recode_52, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select month_of_death, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by month_of_death, 358_cause_recode order by count("358_cause_recode") desc, month_of_death, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select day_of_week_of_death, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by day_of_week_of_death, 358_cause_recode order by count("358_cause_recode") desc, day_of_week_of_death, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC 
+# MAGIC %sql select place_of_death_and_decedents_status, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by place_of_death_and_decedents_status, 358_cause_recode order by count("358_cause_recode") desc, place_of_death_and_decedents_status, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select race_recode_5, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by race_recode_5, 358_cause_recode order by count("358_cause_recode") desc, race_recode_5, 358_cause_recode
 
 # COMMAND ----------
 
