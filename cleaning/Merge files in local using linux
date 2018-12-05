@@ -1,0 +1,2 @@
+head -1 director/one_file.csv > output csv   ## writing the header to the final file
+tail -n +2  director/*.csv >> output.csv  ## writing the content of all csv starting with second line into final
