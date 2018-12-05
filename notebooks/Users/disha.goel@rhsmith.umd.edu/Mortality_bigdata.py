@@ -145,11 +145,23 @@ from pyspark.sql import Row
 
 df_12.registerTempTable("largeTable")
 display(sqlContext.sql("select * from largeTable"))
-%sql select current_data_year, sex, count("sex") from largeTable group by current_data_year, sex order by current_data_year, sex
+
 
 # COMMAND ----------
 
+# MAGIC %sql select current_data_year, sex, count("sex") from largeTable group by current_data_year, sex order by current_data_year, sex
 
+# COMMAND ----------
+
+# MAGIC %sql select current_data_year, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by current_data_year, 358_cause_recode order by current_data_year, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select sex, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by sex, 358_cause_recode order by sex, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select sex, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by sex, 358_cause_recode order by sex, 358_cause_recode
 
 # COMMAND ----------
 
