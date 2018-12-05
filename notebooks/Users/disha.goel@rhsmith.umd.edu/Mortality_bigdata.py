@@ -173,3 +173,15 @@ display(sqlContext.sql("select * from largeTable"))
 
 # COMMAND ----------
 
+# MAGIC %sql select month_of_death, 358_cause_recode , count("358_cause_recode") from largeTable group by month_of_death, 358_cause_recode order by count("358_cause_recode") desc, month_of_death, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select month_of_death, 39_cause_recode , count("39_cause_recode") from largeTable group by month_of_death, 39_cause_recode order by count("39_cause_recode") desc, month_of_death, 39_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select day_of_week_of_death, 39_cause_recode , count("39_cause_recode") from largeTable group by day_of_week_of_death, 39_cause_recode order by count("39_cause_recode") desc, day_of_week_of_death, 39_cause_recode
+
+# COMMAND ----------
+
