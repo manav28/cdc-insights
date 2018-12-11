@@ -173,6 +173,10 @@ display(sqlContext.sql("select * from largeTable"))
 
 # COMMAND ----------
 
+# MAGIC %sql select race_recode_5, sex 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (435) group by race_recode_5, sex, 358_cause_recode order by race_recode_5, sex, 358_cause_recode
+
+# COMMAND ----------
+
 # MAGIC %sql select sex, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by sex, 358_cause_recode order by sex, 358_cause_recode
 
 # COMMAND ----------
@@ -181,7 +185,15 @@ display(sqlContext.sql("select * from largeTable"))
 
 # COMMAND ----------
 
-# MAGIC %sql select current_data_year, age_recode_52, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) and age_recode_52 IN(01,02,03,04,05,06,07,08,09,10,11,1,2,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28) group by current_data_year, age_recode_52, 358_cause_recode order by  current_data_year, count("358_cause_recode") desc, age_recode_52, 358_cause_recode
+# MAGIC %sql select current_data_year, age_recode_52, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) and age_recode_52 IN(23,24,25,26,27,28,29) group by current_data_year, age_recode_52, 358_cause_recode order by  current_data_year, count("358_cause_recode") desc, age_recode_52, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select race_recode_5, 358_cause_recode , count("358_cause_recode") from largeTable where age_recode_52 IN (23, 24,25,26,27,28,29) and race_recode_5 = 2 group by race_recode_5, 358_cause_recode order by count("358_cause_recode") desc, race_recode_5, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select 358_cause_recode , count("358_cause_recode") from largeTable where age_recode_52 IN (23, 24,25,26,27,28,29) group by   358_cause_recode order by count("358_cause_recode") desc, 358_cause_recode
 
 # COMMAND ----------
 
@@ -189,7 +201,7 @@ display(sqlContext.sql("select * from largeTable"))
 
 # COMMAND ----------
 
-# MAGIC %sql select current_data_year, place_of_injury_for_causes_w00_y34_except_y06_and_y07_, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (407, 429,435,446) group by current_data_year, place_of_injury_for_causes_w00_y34_except_y06_and_y07_, 358_cause_recode order by current_data_year, count("358_cause_recode") desc, place_of_injury_for_causes_w00_y34_except_y06_and_y07_, 358_cause_recode
+# MAGIC %sql select current_data_year, place_of_injury_for_causes_w00_y34_except_y06_and_y07_, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (435) group by current_data_year, place_of_injury_for_causes_w00_y34_except_y06_and_y07_, 358_cause_recode order by current_data_year, count("358_cause_recode") desc, place_of_injury_for_causes_w00_y34_except_y06_and_y07_, 358_cause_recode
 
 # COMMAND ----------
 
@@ -230,3 +242,196 @@ display(sqlContext.sql("select * from largeTable"))
 
 # COMMAND ----------
 
+# MAGIC %sql select race_recode_5, 358_cause_recode , count("358_cause_recode") from largeTable where age_recode_52 IN (23, 24,25,26,27,28,29) and 358_cause_recode in (435) group by   race_recode_5, 358_cause_recode order by count("358_cause_recode") desc, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select place_of_injury_for_causes_w00_y34_except_y06_and_y07_,358_cause_recode , count("358_cause_recode") from largeTable where age_recode_52 IN (23, 24,25,26,27,28,29) and 358_cause_recode in (407,429,435,446) group by place_of_injury_for_causes_w00_y34_except_y06_and_y07_, 358_cause_recode order by count("358_cause_recode") desc, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select race_recode_3, count("race_recode_3") from largeTable where 358_cause_recode IN (450,451) group by race_recode_3 order by count("358_cause_recode") desc
+
+# COMMAND ----------
+
+# MAGIC %sql select current_data_year, count("current_data_year") from largeTable where 358_cause_recode IN (420,443) group by current_data_year order by count("current_data_year") asc
+
+# COMMAND ----------
+
+# MAGIC %sql select race_recode_5, 358_cause_recode , count("358_cause_recode") from largeTable where 358_cause_recode IN (342,433) group by race_recode_5, 358_cause_recode order by count("358_cause_recode") desc, race_recode_5, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select current_data_year, count("358_cause_recode") from largeTable where manner_of_death = 2  group by  current_data_year ,358_cause_recode order by count("358_cause_recode") desc,  current_data_year, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select current_data_year, 358_cause_recode, count("358_cause_recode") from largeTable where manner_of_death = 2 and 358_cause_recode IN (424,
+# MAGIC 425,
+# MAGIC 426,
+# MAGIC 427,
+# MAGIC 428,
+# MAGIC 429,
+# MAGIC 430,
+# MAGIC 431) group by  current_data_year ,358_cause_recode order by count("358_cause_recode") desc,  current_data_year, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select entity_condition_1, 358_cause_recode, count("358_cause_recode") from largeTable where manner_of_death = 2 and 358_cause_recode IN (424,
+# MAGIC 425,
+# MAGIC 426,
+# MAGIC 427,
+# MAGIC 428,
+# MAGIC 429,
+# MAGIC 430,
+# MAGIC 431) group by entity_condition_1 ,358_cause_recode order by count("358_cause_recode") desc,  entity_condition_1, 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select count("358_cause_recode") from largeTable where manner_of_death = 2 and 358_cause_recode IN (424,
+# MAGIC 425,
+# MAGIC 426,
+# MAGIC 427,
+# MAGIC 428,
+# MAGIC 429,
+# MAGIC 430,
+# MAGIC 431)
+
+# COMMAND ----------
+
+# MAGIC %sql select count("358_cause_recode") from largeTable where 358_cause_recode IN (407,
+# MAGIC 429,
+# MAGIC 435,
+# MAGIC 446,
+# MAGIC 450,
+# MAGIC 451) 
+
+# COMMAND ----------
+
+# MAGIC %sql select count("358_cause_recode") from largeTable where 358_cause_recode IN (
+# MAGIC 429)
+
+# COMMAND ----------
+
+# MAGIC %sql select count("358_cause_recode") from largeTable where 358_cause_recode IN (407,
+# MAGIC 429,
+# MAGIC 435,
+# MAGIC 446,
+# MAGIC 450,
+# MAGIC 451) and age_recode_52 in (27,28,29)
+
+# COMMAND ----------
+
+# MAGIC %sql select count("358_cause_recode") from largeTable where 358_cause_recode IN (429) and age_recode_52 in (27,28,29)
+
+# COMMAND ----------
+
+# MAGIC %sql select current_data_year, count("358_cause_recode") from largeTable where 358_cause_recode IN (435) group by current_data_year order by current_data_year
+
+# COMMAND ----------
+
+# MAGIC %sql select race, count("race") from largeTable group by race order by count("race") desc
+
+# COMMAND ----------
+
+pt = sqlContext.sql("select  race,count(race) from largeTable group by race order by count(race) desc")
+
+# COMMAND ----------
+
+pt.show()
+
+# COMMAND ----------
+
+pt = pt.withColumnRenamed("count(race)","Total")
+
+# COMMAND ----------
+
+
+pt.registerTempTable("largeTable2")
+
+# COMMAND ----------
+
+sumtotal = sqlContext.sql("select(sum(Total)) from largeTable2")
+
+# COMMAND ----------
+
+sumtotal.show()
+
+# COMMAND ----------
+
+sumtotal = sumtotal.withColumnRenamed("sum(total)","sumtotal")
+
+# COMMAND ----------
+
+abc = sqlContext.sql("select current_data_year, month_of_death, count(358_cause_recode) as total from largeTable where manner_of_death = 2 group by current_data_year, month_of_death order by  current_data_year, month_of_death")
+
+# COMMAND ----------
+
+abc.registerTempTable('sf')
+
+# COMMAND ----------
+
+# MAGIC %sql select * from sf  
+
+# COMMAND ----------
+
+
+ls = sqlContext.sql("Select CONCAT( month_of_death, '-', current_data_year) as date,  total from sf")
+
+
+# COMMAND ----------
+
+# MAGIC %sql select 358_cause_recode,count("358_cause_recode") from largeTable where manner_of_death IN(2,3) and 358_cause_recode IN (435,
+# MAGIC 429,
+# MAGIC 428,
+# MAGIC 441,
+# MAGIC 425,
+# MAGIC 436,
+# MAGIC 430,
+# MAGIC 431,
+# MAGIC 451,
+# MAGIC 440,
+# MAGIC 427,
+# MAGIC 426,
+# MAGIC 434,
+# MAGIC 438,
+# MAGIC 433,
+# MAGIC 437,
+# MAGIC 439,
+# MAGIC 450) group by 358_cause_recode
+
+# COMMAND ----------
+
+# MAGIC %sql select sex,count("358_cause_recode") from largeTable where 358_cause_recode==429  group by sex order by count("358_cause_recode") desc
+
+# COMMAND ----------
+
+# MAGIC %sql select age_recode_52,sex,count("358_cause_recode") from largeTable where 358_cause_recode==429  group by age_recode_52,sex order by count("358_cause_recode") desc
+
+# COMMAND ----------
+
+# MAGIC %sql select race_recode_3,current_data_year,count("358_cause_recode") from largeTable where 358_cause_recode==429 and sex=="M" and age_recode_52>38  group by current_data_year,race_recode_3 order by current_data_year desc
+
+# COMMAND ----------
+
+# MAGIC %sql select count("358_cause_recode") from largeTable where 358_cause_recode==435 and place_of_injury_for_causes_w00_y34_except_y06_and_y07_==0 
+
+# COMMAND ----------
+
+# MAGIC %sql select count("358_cause_recode") from largeTable where 358_cause_recode==435 
+
+# COMMAND ----------
+
+# MAGIC %sql select sex,count("358_cause_recode") from largeTable where 358_cause_recode IN (420,443)  group by  sex order by count("358_cause_recode") desc
+
+# COMMAND ----------
+
+# MAGIC %sql select current_data_year,count("358_cause_recode") from largeTable where 358_cause_recode IN (420,443) and age_recode_52 IN(31,32)  group by current_data_year order by current_data_year desc
+
+# COMMAND ----------
+
+# MAGIC %sql select current_data_year,count("358_cause_recode") from largeTable where 358_cause_recode =429 and marital_status=='M' and age_recode_52 in (35,36,37,38)    group by current_data_year order by current_data_year desc
+
+# COMMAND ----------
+
+# MAGIC %sql select current_data_year,count("358_cause_recode") from largeTable where 358_cause_recode =429  and age_recode_52 in (35,36,37,38)    group by current_data_year order by current_data_year desc
